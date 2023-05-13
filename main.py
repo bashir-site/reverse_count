@@ -51,7 +51,7 @@ def notify_progress(secs_left, chat_id, message_id):
 		notify(TG_CHAT_ID)
 
 
-if __name__ == "__main__":
+def main():
 	env_path = Path('.') / '.env'
 	load_dotenv()
 	TG_TOKEN = os.getenv("TG_TOKEN")
@@ -60,3 +60,7 @@ if __name__ == "__main__":
 	bot = ptbot.Bot(TG_TOKEN)
 	bot.reply_on_message(for_count_down)
 	bot.run_bot()
+
+
+if __name__ == "__main__":
+	main()
