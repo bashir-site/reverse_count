@@ -7,24 +7,8 @@ import random
 from pytimeparse import parse
 
 
-def wait(chat_id, question):
-    print(question)
-    bot.create_timer(5, choose, chat_id=chat_id, question=question)
-
-
-def choose(chat_id, question):
-    answers = ('да', 'нет', 'это возможно')
-    choice = random.choice(answers)
-    message = "Думаю, {}".format(choice)
-    bot.send_message(TG_CHAT_ID, message)
-
-
 def notify(chat_id):
     bot.send_message(TG_CHAT_ID, "Время вышло")
-
-
-def echo(chat_id, question):
-    bot.send_message(TG_CHAT_ID, question)
 
 
 def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='█', zfill='░'):
