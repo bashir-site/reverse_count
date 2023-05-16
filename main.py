@@ -23,10 +23,8 @@ def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='
     
 
 def for_count_down(chat_id, question):
-    message_id = bot.send_message(TG_CHAT_ID, chat_id)
-    num = parse(question)
-    bot.create_countdown(parse(question), notify_progress, chat_id=TG_CHAT_ID, message_id=message_id, num=num)
-    bot.create_timer(num+1, notify, chat_id=TG_CHAT_ID)
+    bot.create_countdown(parse(question), notify_progress, chat_id=chat_id, message_id=bot.send_message(TG_CHAT_ID, chat_id), num=parse(question))
+    bot.create_timer(parse(question) + 1, notify, chat_id=TG_CHAT_ID)
 
 def notify_progress(secs_left, chat_id, message_id, num):
     bot.update_message(TG_CHAT_ID, message_id, f"Осталось сукунд(ы): {secs_left} \n {render_progressbar(num, secs_left)}")
