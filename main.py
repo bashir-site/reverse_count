@@ -30,8 +30,7 @@ def for_count_down(chat_id, question):
 
 def notify_progress(secs_left, chat_id, message_id, num):
     bot.update_message(TG_CHAT_ID, message_id, f"Осталось сукунд(ы): {secs_left} \n {render_progressbar(num, secs_left)}")
-    if secs_left ==0:
-        bot.send_message(chat_id, "Время вышло")
+    bot.send_message(chat_id, "Время вышло")
 
 
 if __name__ == "__main__":
