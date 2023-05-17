@@ -28,10 +28,10 @@ def notify_progress(secs_left, chat_id, message_id, num):
 
 if __name__ == "__main__":
     load_dotenv()
-    TG_TOKEN = os.getenv("TG_TOKEN")
-    TG_CHAT_ID = os.getenv("TG_CHAT_ID")
+    tg_token = os.getenv("TG_TOKEN")
+    tg_chat_id = os.getenv("TG_CHAT_ID")
 
-    bot = ptbot.Bot(TG_TOKEN)
-    message_id = bot.send_message(TG_CHAT_ID, "Бот запущен! \n\n На сколько запустить таймер?")
+    bot = ptbot.Bot(g_token)
+    message_id = bot.send_message(tg_chat_id, "Бот запущен! \n\n На сколько запустить таймер?")
     bot.reply_on_message(for_count_down, message_id = message_id)
     bot.run_bot()
